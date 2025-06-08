@@ -1,0 +1,20 @@
+{
+  "name": "kub-revision",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo no test specified",
+    "start": "nodemon src/app.js",
+    "build": "echo build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
