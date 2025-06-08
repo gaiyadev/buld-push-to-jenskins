@@ -29,18 +29,18 @@ pipeline {
       }
     }
 
-    // stage('Deploy') {
-    //   steps {
-    //     script {
-    //       withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-    //         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-    //           def customImage = docker.build("${DOCKER_USERNAME}/${env.IMAGE_NAME}:latest")
-    //           customImage.push()
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    stage('Deploy') {
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+            docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+              def customImage = docker.build("${DOCKER_USERNAME}/${env.IMAGE_NAME}:latest")
+              customImage.push()
+            }
+          }
+        }
+      }
+    }
   }
 
   post {
